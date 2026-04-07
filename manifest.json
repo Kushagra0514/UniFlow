@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Degreeworks ML Data Ingestion",
+  "version": "1.1",
+  "description": "Intercepts the Degreeworks JSON payload for local AI processing.",
+  "permissions": ["storage", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.uga.edu/*", "*://*/*degreeworks*/*"], 
+      "js": ["interceptor.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["*://*.uga.edu/*", "*://*/*degreeworks*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["visualizer.html", "visualizer.js", "d3.v7.min.js"],
+      "matches": ["*://*.uga.edu/*"]
+    }
+  ]
+}
