@@ -24,7 +24,7 @@
   "web_accessible_resources": [
     {
       "resources": ["visualizer.html", "visualizer.js", "d3.v7.min.js"],
-      "matches": ["*://*.edu/worksheets/*"]
+      "matches": ["*://*.edu/worksheets/*", "*://*/*degreeworks*/*"]
     }
   ]
 }
