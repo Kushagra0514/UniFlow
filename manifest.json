@@ -9,13 +9,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.uga.edu/*", "*://*/*degreeworks*/*"], 
+      "matches": ["*://*.edu/worksheets/*", "*://*/*degreeworks*/*"], 
       "js": ["interceptor.js"],
       "run_at": "document_start",
       "world": "MAIN"
     },
     {
-      "matches": ["*://*.uga.edu/*", "*://*/*degreeworks*/*"],
+      "matches": ["*://*.edu/worksheets/*", "*://*/*degreeworks*/*"],
       "js": ["content.js"],
       "run_at": "document_idle",
       "world": "ISOLATED"
@@ -24,7 +24,7 @@
   "web_accessible_resources": [
     {
       "resources": ["visualizer.html", "visualizer.js", "d3.v7.min.js"],
-      "matches": ["*://*.uga.edu/*"]
+      "matches": ["*://*.edu/worksheets/*"]
     }
   ]
 }
