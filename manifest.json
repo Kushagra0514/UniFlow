@@ -4,6 +4,15 @@
   "version": "1.1",
   "description": "Intercepts the Degreeworks JSON payload for local AI processing.",
   "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "https://huggingface.co/*",
+    "https://*.hf.co/*",
+    "https://*.huggingface.co/*",
+    "https://raw.githubusercontent.com/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; connect-src 'self' https://huggingface.co https://*.hf.co https://*.huggingface.co https://raw.githubusercontent.com"
+  },
   "background": {
     "service_worker": "background.js"
   },
@@ -23,7 +32,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["visualizer.html", "visualizer.js", "d3.v7.min.js"],
+      "resources": ["visualizer.html", "transformer.js", "visualizer.js", "d3.v7.min.js", "ai_advisor.js"],
       "matches": ["*://*.edu/*", "*://*/*"]
     }
   ]
